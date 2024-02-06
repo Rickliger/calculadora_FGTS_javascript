@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Saques</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main id="container">
+
+        <div id="calculator">
+        
+            <div id="input_box">
+                    <h1>Calculadora de Saques</h1>
+                <div class="input-field">
+                    <label for="saldo">Saldo:</label>
+                    <input type="number" id="saldo" name="saldo" required>
+                </div>
+                <br>
+                <div class="input-field">
+                    <label for="dia">Dia do Aniversário:</label>
+                    <input type="number" id="dia" name="dia" required>
+                </div>
+                <br>
+                <div class="input-field">
+                    <label for="mes">Mês do Aniversário:</label>
+                    <input type="number" id="mes" name="mes" required>
+                </div>
+                <br>
+
+            </div>
+
+            <button type="submit" id="calculate">Calcular</button>
+        <div id="result">
+            <span id="total">
+                Receba até R$ 0,00
+            </span>
+        </div>
+        </div>
+        
+    </main>
+        
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
