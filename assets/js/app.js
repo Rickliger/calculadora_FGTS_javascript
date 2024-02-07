@@ -73,10 +73,7 @@ function calculaValorPresenteSaquesComIOF(saldo_inicial, mes_aniversario, dia_an
     return result;
 }
 
-
-document.getElementById("saqueForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
+function calcularResultado() {
     const saldo = parseFloat(document.getElementById("saldo").value);
     const dia_aniversario = parseInt(document.getElementById("dia").value);
     const mes_aniversario = parseInt(document.getElementById("mes").value);
@@ -87,8 +84,18 @@ document.getElementById("saqueForm").addEventListener("submit", function(event) 
     const total_reservado = valorReservado(lista_saques);
     const parc_1_taxa = calculaValorPresenteSaquesComIOF(saldo, mes_aniversario, dia_aniversario);
 
-    const resultadoDiv = document.getElementById("resultado");
-    resultadoDiv.innerHTML = `
-        <p>Receba até: ${parc_1_taxa.toFixed(2)}</p>
-    `;
+    const resultadoDiv = document.getElementById("total");
+    const valorFormatado = parc_1_taxa.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    resultadoDiv.innerHTML = `<p>Receba até: ${valorFormatado}</p>`;
+}
+
+// Chama a função de cálculo quando qualquer campo de entrada for alterado
+document.getElementById("saldo").addEventListener("input", calcularResultado);
+document.getElementById("dia").addEventListener("input", calcularResultado);
+document.getElementById("mes").addEventListener("input", calcularResultado);
+
+// Chama a função de cálculo quando o formulário é enviado (apenas para evitar o recarregamento da página)
+document.getElementById("saqueForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    calcularResultado();
 });

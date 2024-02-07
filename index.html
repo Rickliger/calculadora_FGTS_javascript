@@ -7,40 +7,45 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <main id="container">
-
-        <div id="calculator">
-        
-            <div id="input_box">
-                    <h1>Calculadora de Saques</h1>
-                <div class="input-field">
-                    <label for="saldo">Saldo:</label>
-                    <input type="number" id="saldo" name="saldo" required>
-                </div>
-                <br>
-                <div class="input-field">
-                    <label for="dia">Dia do Aniversário:</label>
-                    <input type="number" id="dia" name="dia" required>
-                </div>
-                <br>
-                <div class="input-field">
-                    <label for="mes">Mês do Aniversário:</label>
-                    <input type="number" id="mes" name="mes" required>
-                </div>
-                <br>
-
+    <div id="box">
+        <main id="container">
+            <div id="calculator">
+                <h1>Calculadora de Saques</h1>
+                <form id="saqueForm">
+                    <div class="input-field">
+                        <label for="saldo">Saldo</label>
+                        <input type="number" id="saldo" name="saldo" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="dia">Dia do Aniversário</label>
+                        <input type="number" id="dia" name="dia" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="mes">Mês do Aniversário</label>
+                        <input type="number" id="mes" name="mes" required>
+                    </div>
+                    <div>
+                        <div id="resultado">
+                            <span id="total">
+                                R$ 0,00
+                          </span>
+                        </div>
+                        <div id="resgatar">
+                            <a href="https://wa.me//5551981325997?text=Vim%20atrav%C3%A9s%20da%20página%20do%20FGTS%20e%20quero%20saber%20mais%20sobre%20como%resgatar%20o%20saque%aniversário." target="_blank">
+                                <button id="resgate" type="button">
+                                    RESGATAR AGORA
+                                </button>
+                              </a> 
+                            
+                        </div>
+                    </div>
+                    
+                </form>
+                
             </div>
+        </main>
+    </div>
 
-            <button type="submit" id="calculate">Calcular</button>
-        <div id="result">
-            <span id="total">
-                Receba até R$ 0,00
-            </span>
-        </div>
-        </div>
-        
-    </main>
-        
     <script src="assets/js/app.js"></script>
 </body>
 </html>
