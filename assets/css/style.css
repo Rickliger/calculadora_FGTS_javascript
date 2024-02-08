@@ -29,6 +29,7 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    align-content: center;
 }
 
 #calculator h2 {
@@ -47,11 +48,15 @@
 
 #saqueForm{
     display: flex;
-    flex-direction: row;
+    align-content: center;
+    flex-direction: column;
     gap: 25px;
     top: -20px;
 }
 
+#saldo {
+    text-align: center;
+}
 
 .input-field input {
     background-color: #cdcdcd;
@@ -62,7 +67,13 @@
     font-weight: 600;
     padding: 5px;
     text-align: center;
+    
+}
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 .input-field label {
@@ -76,8 +87,9 @@
 }
 #resultado_main {
     background-color: #cdcdcd;
-    padding: 40px;
+    padding: 20px;
     border-radius: 15px;
+    text-align: center;
 }
 
 #total {
@@ -89,9 +101,6 @@
     display: flex;
 }
 
-#inputs {
-    
-}
 
 #resgate {
     background: #30cdff;
@@ -104,6 +113,9 @@
     cursor: pointer;
     position: relative;
     box-shadow: #000000;
+    margin: 5px;
+    
+
 }
 
 #resgate:hover {
