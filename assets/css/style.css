@@ -113,9 +113,19 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
     position: relative;
     box-shadow: #000000;
-    margin: 5px;
-    
+    margin: px;
 
+}
+
+#resgatar-agora {
+    display: absolute;
+    justify-content: center;
+    align-content: center;
+}
+
+#icon {
+    margin-right: 5px;
+    margin-bottom: ;
 }
 
 #resgate:hover {

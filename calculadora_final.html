@@ -16,10 +16,10 @@
     box-sizing: border-box;
 }
 
-#box {
-    padding-right: 50px;
-    padding-left: 50px;
-}
+/*#box {*/
+/*    padding-right: 50px;*/
+/*    padding-left: 50px;*/
+/*}*/
 
 #container {
     width: 100%;
@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 #calculator {
@@ -35,7 +36,6 @@
     border-radius: 30px;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.323);
     display: flex;
-    flex-direction: column;
     gap: 25px;
     align-content: center;
 }
@@ -62,11 +62,30 @@
     top: -20px;
 }
 
+@media screen and (max-width: 768px){
+ #saqueForm{
+     flex-direction: column;
+ }   
+}
+
 #saldo {
     text-align: center;
 }
 
+.label{
+    display: flex;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #c3c3c3;
+}
+
+.label:click{
+    color: transparent;
+}
+
 .input-field input {
+    display: flex;
     background-color: #f0f0f0;
     border-radius: 10px;
     border-color: transparent;
@@ -101,7 +120,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #total {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
 }
 
@@ -155,39 +174,56 @@ input[type=number]::-webkit-outer-spin-button {
     position: relative;
     bottom: -5px;
 }
+
+#titulo_input{
+    display: flex;
+    flex-direction: row;
+}
+
+#titulo_nascimento{
+    margin-left: 165px;
+}
     </style>
+
+
 </head>
 <body>
     <div id="box">
         <main id="container">
             <div id="calculator">
-                <h2>Qual seu saldo FGTS ?</h2>
+                <div id="titulo_input">
+                    <div>
+                        <h4>Qual seu saldo ?</h4>
+                    </div>
+                    <div id="titulo_nascimento">
+                        <h4>Sua data de nascimento ?</h4>
+                    </div>
+                </div>
                 <form id="saqueForm">
                     <div class="inputs-field">
-                        <label for="saldo">Saldo</label>
+                        <label class="label" for="saldo">Saldo</label>
                         <div class="input-field">
                             <input type="number" id="saldo" name="saldo" required>
                         </div>
                     </div>
                     <div class="inputs-field">
-                        <label for="dia">Dia do Aniversário</label>
+                        <label class="label" for="dia">Dia do Aniversário</label>
                         <div class="input-field">
                             <input type="number" id="dia" name="dia" required>
                         </div>
                     </div>
                     <div class="inputs-field">
-                        <label for="mes">Mês do Aniversário</label>
+                        <label class="label" for="mes">Mês do Aniversário</label>
                         <div class="input-field">
                             <input type="number" id="mes" name="mes" required>
                         </div>
                     </div>
                     <div>
                         <div id="entrega">
-                            <img src="assets/css/imagens/icon-entrega.png" width="30px" id="icon" alt="entrega-rapida-meu-consig">
                             Receba em 2 horas
                         </div>
                         <div id="resultado_main">
-                            <h4>Você pode receber até</h4>
+                            <h6>Você pode receber até</h6>
                             <div id="resultado">
                                 <span id="total">
                                     R$ 0,00
@@ -211,7 +247,7 @@ input[type=number]::-webkit-outer-spin-button {
         </main>
     </div>
 
-    <script src="assets/js/app.js">const taxa_juro = 0.018;
+    <script>const taxa_juro = 0.018;
 
         function getAliquotaParcela(saldo) {
             saldo = parseFloat(saldo);
@@ -301,13 +337,9 @@ input[type=number]::-webkit-outer-spin-button {
             const valorFormatado = parc_1_taxa.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             resultadoDiv.innerHTML = `<p>${valorFormatado}</p>`;
         }
-        
-        // Chama a função de cálculo quando qualquer campo de entrada for alterado
         document.getElementById("saldo").addEventListener("input", calcularResultado);
         document.getElementById("dia").addEventListener("input", calcularResultado);
         document.getElementById("mes").addEventListener("input", calcularResultado);
-        
-        // Chama a função de cálculo quando o formulário é enviado (apenas para evitar o recarregamento da página)
         document.getElementById("saqueForm").addEventListener("submit", function(event) {
             event.preventDefault();
             calcularResultado();
