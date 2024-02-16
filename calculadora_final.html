@@ -64,7 +64,7 @@
 
 @media screen and (max-width: 768px){
  #saqueForm{
-     flex-direction: column;
+    flex-direction: column;
  }   
 }
 
@@ -86,6 +86,7 @@
 
 .input-field input {
     display: flex;
+    margin-right: 5px;
     background-color: #f0f0f0;
     border-radius: 10px;
     border-color: transparent;
@@ -97,17 +98,31 @@
     
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
 .input-field label {
     position: absolute;
     font-weight: 600;
 }
 
+.input-field {
+    display: flex;
+}
+
+#titulo-saldo{
+    margin-left: 10px;
+}
+#titulo-dia{
+    margin-left: 10px;
+}
+#titulo-mes{
+    margin-left: 10px;
+    color: transparent;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
 #resultado {
     text-align: center;
@@ -124,10 +139,10 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 600;
 }
 
-.input-field {
+#conteudo_geral{
     display: flex;
+    flex-direction: row;
 }
-
 
 #resgate {
     background: #30cdff;
@@ -152,7 +167,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 #icon {
     margin-right: 5px;
-    margin-bottom: ;
 }
 
 #resgate:hover {
@@ -191,55 +205,51 @@ input[type=number]::-webkit-outer-spin-button {
     <div id="box">
         <main id="container">
             <div id="calculator">
-                <div id="titulo_input">
-                    <div>
-                        <h4>Qual seu saldo ?</h4>
-                    </div>
-                    <div id="titulo_nascimento">
-                        <h4>Sua data de nascimento ?</h4>
-                    </div>
-                </div>
+                
                 <form id="saqueForm">
-                    <div class="inputs-field">
-                        <label class="label" for="saldo">Saldo</label>
-                        <div class="input-field">
-                            <input type="number" id="saldo" name="saldo" required>
-                        </div>
-                    </div>
-                    <div class="inputs-field">
-                        <label class="label" for="dia">Dia do Aniversário</label>
-                        <div class="input-field">
-                            <input type="number" id="dia" name="dia" required>
-                        </div>
-                    </div>
-                    <div class="inputs-field">
-                        <label class="label" for="mes">Mês do Aniversário</label>
-                        <div class="input-field">
-                            <input type="number" id="mes" name="mes" required>
-                        </div>
-                    </div>
-                    <div>
-                        <div id="entrega">
-                            Receba em 2 horas
-                        </div>
-                        <div id="resultado_main">
-                            <h6>Você pode receber até</h6>
-                            <div id="resultado">
-                                <span id="total">
-                                    R$ 0,00
-                              </span>
-                            </div>
-                            <div id="resgatar">
-                                <a href="https://wa.me//5551981325997?text=Vim%20atrav%C3%A9s%20da%20página%20do%20FGTS%20e%20quero%20saber%20mais%20sobre%20como%resgatar%20o%20saque%aniversário." target="_blank">
-                                    <button id="resgate" type="button">
-                                        RESGATAR AGORA
-                                    </button>
-                                  </a> 
-                                
+                    <div id="conteudo_geral">
+                        <div class="inputs-field">
+                            <label id="titulo-saldo" for="saldo">Seu saldo</label>
+                            <label class="label" for="saldo">Saldo</label>
+                            <div class="input-field">
+                                <input type="number" id="saldo" name="saldo" required>
                             </div>
                         </div>
+                        <div class="inputs-field">
+                            <label id="titulo-dia" for="saldo">Sua data de nascimento</label>
+                            <label class="label" for="dia">Dia</label>
+                            <div class="input-field">
+                                <input type="number" id="dia" name="dia" required>
+                            </div>
+                        </div>
+                        <div class="inputs-field">
+                            <label id="titulo-mes" for="saldo">.</label>
+                            <label class="label" for="mes">Mês </label>
+                            <div class="input-field">
+                                <input type="number" id="mes" name="mes" required>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="entrega">
+                                Receba em 2 horas
+                            </div>
+                            <div id="resultado_main">
+                                <h6>Receba até</h6>
+                                <div id="resultado">
+                                    <span id="total">
+                                        R$ 0,00
+                                  </span>
+                                </div>
+                                <div id="resgatar">
+                                    <a href="https://wa.me//5551981325997?text=Vim%20atrav%C3%A9s%20da%20página%20do%20FGTS%20e%20quero%20saber%20mais%20sobre%20como%resgatar%20o%20saque%aniversário." target="_blank">
+                                        <button id="resgate" type="button">
+                                            RESGATAR AGORA
+                                        </button>
+                                      </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </form>
                 
             </div>
